@@ -1,0 +1,535 @@
+<!DOCTYPE html><html lang="pt-br"><head>  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styled.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <script async="" src="js/gtm.js"></script><script src="js/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <title>Apple Quiz</title>
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Text:wght@400;700&amp;display=swap" rel="stylesheet">
+    
+  </head>
+  <body style="background-color: rgb(5,0,0);">
+    
+    <header style="background-color: rgba(22, 22, 23, 1)">
+      
+      <img src="images/logo_cacau_show.svg" alt="" id="logo">
+      <span id="saldo" style="margin-left: auto"></span>
+      <svg width="18" height="18" viewBox="0 0 18 18"><polyline id="globalnav-menutrigger-bread-bottom" fill="none" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" points="2 12, 16 12" class="globalnav-menutrigger-bread globalnav-menutrigger-bread-bottom"><animate id="globalnav-anim-menutrigger-bread-bottom-open" attributeName="points" keyTimes="0;0.5;1" dur="0.24s" begin="indefinite" fill="freeze" calcMode="spline" keySplines="0.42, 0, 1, 1;0, 0, 0.58, 1" values=" 2 12, 16 12; 2 9, 16 9; 3.5 15, 15 3.5"></animate><animate id="globalnav-anim-menutrigger-bread-bottom-close" attributeName="points" keyTimes="0;0.5;1" dur="0.24s" begin="indefinite" fill="freeze" calcMode="spline" keySplines="0.42, 0, 1, 1;0, 0, 0.58, 1" values=" 3.5 15, 15 3.5; 2 9, 16 9; 2 12, 16 12"></animate></polyline><polyline id="globalnav-menutrigger-bread-top" fill="none" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" points="2 5, 16 5" class="globalnav-menutrigger-bread globalnav-menutrigger-bread-top"><animate id="globalnav-anim-menutrigger-bread-top-open" attributeName="points" keyTimes="0;0.5;1" dur="0.24s" begin="indefinite" fill="freeze" calcMode="spline" keySplines="0.42, 0, 1, 1;0, 0, 0.58, 1" values=" 2 5, 16 5; 2 9, 16 9; 3.5 3.5, 15 15"></animate><animate id="globalnav-anim-menutrigger-bread-top-close" attributeName="points" keyTimes="0;0.5;1" dur="0.24s" begin="indefinite" fill="freeze" calcMode="spline" keySplines="0.42, 0, 1, 1;0, 0, 0.58, 1" values=" 3.5 3.5, 15 15; 2 9, 16 9; 2 5, 16 5"></animate></polyline></svg>
+    </header>
+    <main style="max-width: 500px;">
+      
+      <div class="card pergunta01" id="pergunta01" style="transform: translatey(10px);">
+        <div class="card__logo">
+          <img src="images/1.webp" alt="">
+        </div>
+        <div class="card__satisfacao">
+          <h2>How would you rate your familiarity with the Apple brand?</h2>
+          <div class="card__gradeContainer">
+            <div class="card__grade" id="card__grade1" onclick="toggleCard(this)">
+              <i class="fa-regular fa-star" id="star1"></i>
+            </div>
+            <div class="card__grade" id="card__grade2" onclick="toggleCard(this)">
+              <i class="fa-regular fa-star" id="star2"></i>
+            </div>
+            <div class="card__grade" id="card__grade3" onclick="toggleCard(this)">
+              <i class="fa-regular fa-star" id="star3"></i>
+            </div>
+            <div class="card__grade" id="card__grade4" onclick="toggleCard(this)">
+              <i class="fa-regular fa-star" id="star4"></i>
+            </div>
+            <div class="card__grade" id="card__grade5" onclick="toggleCard(this)">
+              <i class="fa-regular fa-star" id="star5"></i>
+            </div>
+          </div>
+          <div class="card__gradeDescricao">
+            <p>Very bad</p>
+            <p>Very good</p>
+          </div>
+        </div>
+        <div class="card__resposta">
+          <h2>
+            When you think of the Apple brand, what is the first word that comes to mind?
+          </h2>
+          <div class="resposta__gradeContainer">
+            <div class="resposta__grade resposta1" onclick="toggleResponse(this, 'resposta1')">
+              <p onclick="scrollToDown()">
+                Innovation
+              </p>
+            </div>
+            <div class="resposta__grade resposta1" onclick="toggleResponse(this, 'resposta1')">
+              <p onclick="scrollToDown()">
+                Quality
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card__resposta">
+          <h2>
+            In your opinion, what image does Apple represent in the market?
+          </h2>
+          <div class="resposta__gradeContainer">
+            <div class="resposta__grade resposta2" onclick="toggleResponse(this, 'resposta2')">
+              <p>
+                Leader in innovation
+              </p>
+            </div>
+            <div class="resposta__grade resposta2" onclick="toggleResponse(this, 'resposta2')">
+              <p>
+                Reliability and quality
+              </p>
+            </div>
+          </div>
+        </div>
+        <button class="card__enviarResposta" id="enviarResposta" onclick="pergunta01()" disabled="">
+          SUBMIT
+        </button>
+      </div>
+      <div class="card pergunta02" id="pergunta02" style="display: none; transform: translatey(10px);">
+        <div class="card__logo">
+          <img src="images/2.webp" alt="">
+        </div>
+        <div class="card__satisfacao">
+          <h2>
+            How would you rate the quality of Apple devices you have tested?
+          </h2>
+          <div class="card__gradeContainer">
+            <div class="card__grade" id="card__grade1" onclick="toggleCard(this)">
+              <i class="fa-regular fa-star" id="star1"></i>
+            </div>
+            <div class="card__grade" id="card__grade2" onclick="toggleCard(this)">
+              <i class="fa-regular fa-star" id="star2"></i>
+            </div>
+            <div class="card__grade" id="card__grade3" onclick="toggleCard(this)">
+              <i class="fa-regular fa-star" id="star3"></i>
+            </div>
+            <div class="card__grade" id="card__grade4" onclick="toggleCard(this)">
+              <i class="fa-regular fa-star" id="star4"></i>
+            </div>
+            <div class="card__grade" id="card__grade5" onclick="toggleCard(this)">
+              <i class="fa-regular fa-star" id="star5"></i>
+            </div>
+          </div>
+          <div class="card__gradeDescricao">
+            <p>Very bad</p>
+            <p>Very good</p>
+          </div>
+        </div>
+        <div class="card__resposta">
+          <h2>
+            When do you think is the perfect time to use AirPods Max?        
+          </h2>
+          <div class="resposta__gradeContainer">
+            <div class="resposta__grade resposta1" onclick="toggleResponse(this, 'resposta1')">
+              <p onclick="scrollToDown()">
+                During work                
+              </p>
+            </div>
+            <div class="resposta__grade resposta1" onclick="toggleResponse(this, 'resposta1')">
+              <p onclick="scrollToDown()">
+                In my leisure time.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card__resposta">
+          <h2>
+            Which Apple product do you use the most?
+          </h2>
+          <div class="resposta__gradeContainer">
+            <div class="resposta__grade resposta2" onclick="toggleResponse(this, 'resposta2')">
+              <p>
+                iPhone
+              </p>
+            </div>
+            <div class="resposta__grade resposta2" onclick="toggleResponse(this, 'resposta2')">
+              <p>
+                Other devices
+              </p>
+            </div>
+          </div>
+        </div>
+        <button class="card__enviarResposta" id="enviarResposta" onclick="pergunta02()" disabled="">
+          SUBMIT
+        </button>
+      </div>
+
+      <div class="card pergunta03" id="pergunta03" style="display: none; transform: translatey(10px);">
+        <div class="card__logo">
+          <img src="images/3.webp" alt="">
+        </div>
+        <div class="card__satisfacao">
+          <h2>
+            How would you rate the experience of gifting someone with Apple products?
+          </h2>
+          <div class="card__gradeContainer">
+            <div class="card__grade" id="card__grade1" onclick="toggleCard(this)">
+              <i class="fa-regular fa-star" id="star1"></i>
+            </div>
+            <div class="card__grade" id="card__grade2" onclick="toggleCard(this)">
+              <i class="fa-regular fa-star" id="star2"></i>
+            </div>
+            <div class="card__grade" id="card__grade3" onclick="toggleCard(this)">
+              <i class="fa-regular fa-star" id="star3"></i>
+            </div>
+            <div class="card__grade" id="card__grade4" onclick="toggleCard(this)">
+              <i class="fa-regular fa-star" id="star4"></i>
+            </div>
+            <div class="card__grade" id="card__grade5" onclick="toggleCard(this)">
+              <i class="fa-regular fa-star" id="star5"></i>
+            </div>
+          </div>
+          <div class="card__gradeDescricao">
+            <p>Very bad</p>
+            <p>Very good</p>
+          </div>
+        </div>
+        <div class="card__resposta">
+          <h2>
+            If you were to gift someone with Apple products, who would it be?            
+          </h2>
+          <div class="resposta__gradeContainer">
+            <div class="resposta__grade resposta1" onclick="toggleResponse(this, 'resposta1')">
+              <p onclick="scrollToDown()">
+                Family
+              </p>
+            </div>
+            <div class="resposta__grade resposta1" onclick="toggleResponse(this, 'resposta1')">
+              <p onclick="scrollToDown()">
+                Friends
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card__resposta">
+          <h2>
+            Which Apple product would you choose to gift someone special?            
+          </h2>
+          <div class="resposta__gradeContainer">
+            <div class="resposta__grade resposta2" onclick="toggleResponse(this, 'resposta2')">
+              <p>
+                iPhone
+              </p>
+            </div>
+            <div class="resposta__grade resposta2" onclick="toggleResponse(this, 'resposta2')">
+              <p>
+                AirPods
+              </p>
+            </div>
+          </div>
+        </div>
+        <button class="card__enviarResposta" id="enviarResposta" onclick="pergunta03()" disabled="">
+          SUBMIT
+        </button>
+      </div>
+
+      <div class="card pergunta04" id="pergunta04" style="display: none; transform: translatey(10px);">
+        <div class="card__logo">
+          <img src="images/4.webp" alt="">
+        </div>
+        <div class="card__satisfacao">
+          <h2>
+            How important is your emotional connection with the Apple brand?          
+          </h2>
+          <div class="card__gradeContainer">
+            <div class="card__grade" id="card__grade1" onclick="toggleCard(this)">
+              <i class="fa-regular fa-star" id="star1"></i>
+            </div>
+            <div class="card__grade" id="card__grade2" onclick="toggleCard(this)">
+              <i class="fa-regular fa-star" id="star2"></i>
+            </div>
+            <div class="card__grade" id="card__grade3" onclick="toggleCard(this)">
+              <i class="fa-regular fa-star" id="star3"></i>
+            </div>
+            <div class="card__grade" id="card__grade4" onclick="toggleCard(this)">
+              <i class="fa-regular fa-star" id="star4"></i>
+            </div>
+            <div class="card__grade" id="card__grade5" onclick="toggleCard(this)">
+              <i class="fa-regular fa-star" id="star5"></i>
+            </div>
+          </div>
+          <div class="card__gradeDescricao">
+            <p>Very bad</p>
+            <p>Very good</p>
+          </div>
+        </div>
+        <div class="card__resposta">
+          <h2>
+            What experience with Apple would you like to have?
+          </h2>
+          <div class="resposta__gradeContainer">
+            <div class="resposta__grade resposta1" onclick="toggleResponse(this, 'resposta1')">
+              <p onclick="scrollToDown()">
+                A visit to the store with the opportunity to test unreleased products
+              </p>
+            </div>
+            <div class="resposta__grade resposta1" onclick="toggleResponse(this, 'resposta1')">
+              <p onclick="scrollToDown()">
+                Being able to choose and buy a latest-generation item with a discount
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card__resposta">
+          <h2>
+            What makes Apple special to you?            
+          </h2>
+          <div class="resposta__gradeContainer">
+            <div class="resposta__grade resposta2" onclick="toggleResponse(this, 'resposta2')">
+              <p>
+                The quality and durability of the devices
+              </p>
+            </div>
+            <div class="resposta__grade resposta2" onclick="toggleResponse(this, 'resposta2')">
+              <p>
+                The integrated ecosystem
+              </p>
+            </div>
+          </div>
+        </div>
+        <button class="card__enviarResposta" id="enviarResposta" onclick="pergunta04()" disabled="">
+          SUBMIT
+        </button>
+      </div>
+
+      <div class="card pergunta05" id="pergunta05" style="display: none; transform: translatey(10px);">
+        <div class="card__logo">
+          <img src="images/5.webp" alt="">
+        </div>
+        <div class="card__satisfacao">
+          <h2>
+            How excited are you about Apple's innovative products?
+          </h2>
+          <div class="card__gradeContainer">
+            <div class="card__grade" id="card__grade1" onclick="toggleCard(this)">
+              <i class="fa-regular fa-star" id="star1"></i>
+            </div>
+            <div class="card__grade" id="card__grade2" onclick="toggleCard(this)">
+              <i class="fa-regular fa-star" id="star2"></i>
+            </div>
+            <div class="card__grade" id="card__grade3" onclick="toggleCard(this)">
+              <i class="fa-regular fa-star" id="star3"></i>
+            </div>
+            <div class="card__grade" id="card__grade4" onclick="toggleCard(this)">
+              <i class="fa-regular fa-star" id="star4"></i>
+            </div>
+            <div class="card__grade" id="card__grade5" onclick="toggleCard(this)">
+              <i class="fa-regular fa-star" id="star5"></i>
+            </div>
+          </div>
+          <div class="card__gradeDescricao">
+            <p>Very bad</p>
+            <p>Very good</p>
+          </div>
+        </div>
+        <div class="card__resposta">
+          <h2>
+            Would you consider purchasing refurbished Apple products in the future?
+          </h2>
+          <div class="resposta__gradeContainer">
+            <div class="resposta__grade resposta1" onclick="toggleResponse(this, 'resposta1')">
+              <p onclick="scrollToDown()">
+                Yes, I do
+              </p>
+            </div>
+            <div class="resposta__grade resposta1" onclick="toggleResponse(this, 'resposta1')">
+              <p onclick="scrollToDown()">
+                I’m not interested
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card__resposta">
+          <h2>
+            Would you like to confirm your interest in claiming a refurbished Apple product for a one-time fee of $6.95?
+          </h2>
+            <div class="resposta__grade resposta2" onclick="toggleResponse(this, 'resposta2')">
+              <p>Yes, I want to claim my Apple product now!</p>
+            </div>
+        </div>
+        <button class="card__enviarResposta" id="enviarResposta" onclick="pergunta05()" disabled="" style="margin-top: 20px;">
+          FINALIZE EVALUATION
+        </button>
+      </div>
+      <div class="card finalizacao" id="finalizacao" style="display: none; transform: translatey(-15px) !important;">
+        <div class="finalizacao__titulo">
+          <h1>CONGRATULATIONS!</h1>
+        </div>
+        <div class="finalizacao__trofeu">
+          <img src="images/ursinhosnobg.png" alt="">
+        </div>
+        <div class="finalizacao__descricao">
+          <p>
+            You have completed our survey and earned a <b>95% discount</b> on one of our products.
+            <br>
+            Thank you for your participation.
+            <br>
+            Click now on the <b>"REDEEM NOW</b> button, choose your product, and complete your purchase.
+          </p>
+          <p>
+        </p></div>
+        <div class="finalizacao__botao">
+          <a href="/public/apple-us/site/index.html"><button style="background-color: #228B22;">
+            REDEEM NOW!
+          </button></a>
+        </div>
+      </div>
+
+      <button data-bs-toggle="modal" data-bs-target="#modal01" id="popup" style="display: none"></button>
+
+      <div class="modal" tabindex="-1" id="modal01">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="card apresentacao" style="margin-top: 0px !important">
+              <h2>
+                🎉 SURVEY FOR APPLE PROMOTIONAL ACCESS 🎉
+              </h2>
+              <p>
+                Hello, thank you for participating in our survey.
+                <br>
+                You are about to answer a few quick and 
+                <strong>objective questions in a quiz format.</strong> 
+                As a token of our appreciation for supporting 
+                <strong style="text-decoration: underline !important">Apple Inc.</strong>,
+                 you will receive a promotional discount of 95% on the purchase
+                <strong>one of our products.</strong>
+              </p>
+              <button type="button" data-bs-dismiss="modal" style="margin-top: 10px;">START THE SURVEY
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="js/hideAllExcept.js"></script>
+    <script src="js/selectedCard.js"></script>
+    <script src="js/selectedResponse.js"></script>
+    <script src="js/buttonCheck.js"></script>
+    <script src="js/popup.js"></script>
+    <script src="js/sendResponse.js"></script>
+    <script>
+      $(document).ready(function () {
+        let data = new Date();
+
+        var date = data.getDate();
+        var month = [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December",
+        ][data.getMonth()];
+        var year = data.getFullYear();
+
+        $("#todayDate").html(`${date} of ${month} of ${year}**`);
+      });
+    </script>
+    <script type="text/javascript" src="js/crypto-js.min.js"></script>
+
+    <script>
+      var popup = document.getElementById("popup");
+
+      document.addEventListener("DOMContentLoaded", function () {
+        popup.click();
+      });
+    </script>
+    
+    <script>
+    window.onload = function () {
+        var links = document.getElementsByTagName("a");
+        for (var i = 0, n = links.length; i < n; i++) {
+            var href = links[i].href.trim() +
+                    (links[i].href.indexOf("?") > 0 ? '&' : '?') +
+                    document.location.search.replace('?', '').toString();
+            links[i].href = href;
+        }
+    }
+</script>
+
+  
+
+
+
+<script>
+  function getUTMParameters() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const utmParams = {};
+    urlParams.forEach((value, key) => {
+        if (key.startsWith('utm_')) {
+            utmParams[key] = value;
+        }
+    });
+    return utmParams;
+}
+
+function setCookie(name, value, days) {
+    const date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    const expires = "expires=" + date.toUTCString();
+    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+}
+
+function getCookie(name) {
+    const nameEQ = name + "=";
+    const ca = document.cookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+}
+
+function saveUTMParameters() {
+    const utmParams = getUTMParameters();
+    for (const [key, value] of Object.entries(utmParams)) {
+        setCookie(key, value, 7);
+    }
+}
+saveUTMParameters();
+function getUTMParametersFromCookies() {
+    const utmParams = {};
+    document.cookie.split(';').forEach(cookie => {
+        const [key, value] = cookie.trim().split('=');
+        if (key.startsWith('utm_')) {
+            utmParams[key] = value;
+        }
+    });
+    return utmParams;
+}
+
+function addUTMParametersToLinks() {
+    const utmParams = getUTMParametersFromCookies();
+    const utmString = new URLSearchParams(utmParams).toString();
+
+    if (utmString) {
+        const links = document.querySelectorAll('a[href]');
+        links.forEach(link => {
+            const url = new URL(link.href);
+            url.search = url.search ? `${url.search}&${utmString}` : `?${utmString}`;
+            link.href = url.toString();
+        });
+    }
+}
+addUTMParametersToLinks();
+
+</script>
+<script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
+
+</body></html>
